@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {Store, select} from '@ngrx/store';
+import {Store} from '@ngrx/store';
 import { State } from "./reducers/index";
 import { interval } from 'rxjs'
 
@@ -11,22 +11,13 @@ import { interval } from 'rxjs'
 
 
 export class AppComponent {
-  // init data global variable
-  data = {
-    firstVariable:0,
-    secondVariable:0
-  };
+
   // init subscribe for timer
   subscribe = null;
   // flag showing weather to change on decrease or increse
   evenChange :boolean= false;
 
   constructor (private store:Store<State>) {
-
-    this.store.pipe(select((store: any) => store.reducers)).subscribe((data) => {
-      this.data = data;
-   });
-console.log(this.data);
   }
 
 /**
