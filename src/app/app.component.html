@@ -1,7 +1,11 @@
 <div>
   Test {{title}}
-  <ul>
-    <li *ngFor="let product of items">{{product}}</li>
-  </ul>
+  firstVariable {{data.firstVariable}} <br/>
+  secondVariable {{data.secondVariable}}
   
+  <br/>
+  <button (click)="start($event)">Start</button>
+  <button (click)="stop($event)">Stop</button>
+  <button (click)="reset($event)">Reset</button>
+
 </div>
