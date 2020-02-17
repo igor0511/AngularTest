@@ -8,6 +8,7 @@ import {
 } from '@ngrx/store';
 import { environment } from '../../environments/environment';
 
+// state consists of two numbers
 export interface State {
   firstVariable:number,
   secondVariable:number
@@ -15,25 +16,30 @@ export interface State {
 
 export const reducers: ActionReducer<State> =
   (state = intitialState, action: Action) => {
-  console.log('Action came in! ' + action.type);
+    // depending on the action, do increase, decrease, change or reset
     switch (action.type) {
       case "Increase": {
-        console.log('Increase');
+        // increase first variable and put to state
+        // + return whole state
         return {
           ...state,
           firstVariable:++state.firstVariable,
         }
       }
       case "Decrease": {
-        console.log('Decrease!');
+        // decrease second variable and put to state
+        // + return whole state
         return {
            ...state,
            secondVariable:--state.secondVariable,
         }
       }
       case "Reset": {
-        console.log('Reset!');
-        return intitialState;
+        // reset values
+        return {
+          firstVariable:-5,
+          secondVariable:10,
+       };
       }
       case "change": {
         console.log('This action does nothing!');
@@ -45,6 +51,7 @@ export const reducers: ActionReducer<State> =
     }
   };
 
+// initial values
 export const intitialState: State = {
   firstVariable:-5,
   secondVariable:10

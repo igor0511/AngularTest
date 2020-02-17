@@ -1,9 +1,14 @@
 <div>
-  Test {{title}}
-  firstVariable {{data.firstVariable}} <br/>
-  secondVariable {{data.secondVariable}}
+
+  <p [ngClass]="{'blue': data.firstVariable > 0, 'red': data.firstVariable <= 0}">
+    firstVariable {{data.firstVariable}} 
+  </p>
+  <p [ngClass]="{'blue': data.firstVariable > 0, 'red': data.firstVariable <= 0}">
+    secondVariable {{data.secondVariable}}
+  </p>
   
   <br/>
+
   <button (click)="start($event)">Start</button>
   <button (click)="stop($event)">Stop</button>
   <button (click)="reset($event)">Reset</button>
