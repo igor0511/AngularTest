@@ -33,7 +33,7 @@ console.log(this.data);
  * Starts timer on start butto click
  * No return value
  */
-  start = () => {
+  start = (event) => {
     // create interval every 1 sec
     const source = interval(1000);
 
